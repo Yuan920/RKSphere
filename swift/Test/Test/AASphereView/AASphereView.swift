@@ -94,8 +94,8 @@ class AASphereView: UIView {
         let scale = (coordinate.z + 2.0) / 3.0      //0.3~1
         tagView.transform = CGAffineTransform.init(scaleX: scale, y: scale)
         tagView.alpha = scale
-//        tagView.isUserInteractionEnabled = coordinate.x > 0.0
-        
+        //tagView.isUserInteractionEnabled = coordinate.x > 0.0
+        /// 这里做了修改
         tagView.isUserInteractionEnabled = coordinate.z > 0.0
         
     }
@@ -171,10 +171,10 @@ class AASphereView: UIView {
         }
         
     }
-    
-    public func timerCtr(action:Bool){
-        timer?.isPaused = action
-        print("timaer-status\(timer?.isPaused ?? false)")
+    /// 新增球体控制
+    public func timerCtr(paused:Bool){
+        timer?.isPaused = paused
+        //print("timaer-status\(timer?.isPaused ?? false)")
     }
     
     

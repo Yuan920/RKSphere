@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             button.setTitleColor(UIColor.brown, for: .normal)
             button.addTarget(self, action: #selector(buttonAction(btn:)), for: .touchUpInside)
             //button.sizeToFit()
-            button.frame = CGRect(x: 0, y: 0, width: 60, height: 60);
+            button.frame = CGRect(x: 0, y: 0, width: 80, height: 80);
             button.backgroundColor = .red;
             tags.append(button)
             
@@ -47,14 +47,14 @@ class ViewController: UIViewController {
     
     @objc func buttonAction(btn: UIButton) {
         print("abc:\(btn.titleLabel?.text ?? "--")");
-        sphereView.timerCtr(action: true)
+        sphereView.timerCtr(paused: true)
         UIView.animate(withDuration:0.3, delay: 0) {
             btn.transform = CGAffineTransform.init(scaleX: 2.0, y: 2.0);
         } completion: { aa in
             UIView.animate(withDuration: 0.3, delay: 0) {
                 btn.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0);
             } completion: { bb in
-                self.sphereView.timerCtr(action: false)
+                self.sphereView.timerCtr(paused: false)
             }
         }
         
